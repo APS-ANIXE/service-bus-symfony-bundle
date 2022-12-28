@@ -48,7 +48,10 @@ final class ProophServiceBusExtension extends Extension
         $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader = new XmlFileLoader(
+            $container,
+            new FileLocator(__DIR__.'/../../config')
+        );
         $loader->load('service_bus.xml');
 
         if ($container->getParameter('kernel.debug')) {
